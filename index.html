@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+            width: 100%;
+            margin: 0;
+        }
+
+        form {
+            margin-top: 2rem;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+
+        div {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="pdfForm">
+        <h2>PDF Generator</h2>
+        <div>
+            <label for="customerName">客户名:</label>
+            <input type="text" id="customerName" name="customerName" required>
+        </div>
+        <div>
+            <label for="containerNumbers">柜号 (用换行分隔):</label>
+            <textarea style="height: 200px;" id="containerNumbers" name="containerNumbers" required></textarea>
+            <span style="color: #777373;">No more than 10 containers once</span>
+        </div>
+        <div>
+            <label for="pickupMethod">提货方式:</label>
+            <input type="text" id="pickupMethod" name="pickupMethod" required>
+        </div>
+        <div>
+            <label for="date">日期:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <button type="submit">生成PDF</button>
+    </form>
+
+    <script src="pdf-generator.js"></script>
+</body>
+
+</html>
